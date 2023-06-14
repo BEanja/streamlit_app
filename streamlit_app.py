@@ -45,10 +45,6 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalized)
 
 
-streamlit.stop()
-
-
-
 streamlit.header("The fruit load list contains:")
 def get_fruit_load_list():
   with my_cnx.cursor() as my_cur:
@@ -59,6 +55,8 @@ if streamlit.button('Get Fruit Load List'):
   my_data_rows = get_fruit_load_list()
   streamlit.dataframe(my_data_rows)
 
+
+streamlit.stop()
 
 
 fruit_choice2 = streamlit.text_input('What fruit would you like to add?', 'jackfruit')
