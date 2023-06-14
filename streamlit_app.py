@@ -34,17 +34,17 @@ try:
     back_from_function = get_fruityvice_data(fruit_choice)
     streamlit.dataframe(back_from_function)
     
-#except URLError as e:
-#streamlit.error()
-# streamlit.write('The user entered ', fruit_choice)
+except URLError as e:
+streamlit.error()
+streamlit.write('The user entered ', fruit_choice)
 
-#fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_choice)
 # write your own comment -what does the next line do? 
-#fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
+fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 # write your own comment - what does this do?
-#streamlit.dataframe(fruityvice_normalized)
+streamlit.dataframe(fruityvice_normalized)
 
-#streamlit.stop()
+streamlit.stop()
 
 #my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 #my_cur = my_cnx.cursor()
@@ -57,6 +57,3 @@ try:
 #streamlit.write('Thanks for adding ', fruit_choice2)
 
 #my_cur.execute("insert into fruit_load_list values ('from streamlit')")
-
-
-
